@@ -1,13 +1,35 @@
-
+import { useState } from "react";
 import First from "./First.jsx"
 function App() {
   
+let [counter, setCounter] = useState(15)
+
+  
+  const addValue = () =>{
+    setCounter(counter + 1)
+  }
+
+  const removeValue = () =>{
+    setCounter(counter - 1)
+  }
+
+  if (counter < 0 || counter > 20){
+      console.error("counter is out of range");
+      return
+  
+  }
 
   return (
     <>
     <First/>
-    <h1>first file react</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, sed quas debitis minus soluta ducimus ratione perferendis eos recusandae nisi laborum enim id sequi ullam laboriosam atque ipsa alias? Maxime.</p>
+    <h1>counter project</h1>
+    <h2>Counter value: {counter}</h2>
+    <br/>
+    <button 
+    onClick={addValue}>Add value </button>
+    <br/>
+    <br/>
+    <button onClick={removeValue}>Remove value </button>
     </>
   )
 }
