@@ -5,9 +5,10 @@ function Profile() {
     const {user} = useContext(userContext)
 
     
-  return (
-    <div>Profile</div>
-  )
+  if (user) return <div>please login</div>
+
+  return <div>welcone {user.username}</div>
+  
 }
 
 export default Profile
